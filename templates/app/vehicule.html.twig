@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Voitures{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <section class="row">
+
+        {% for item in vehicules %}
+            
+            <div>
+                <img src="{{ item.image }}" alt="">
+                <div>
+                    <h3>{{ item.title }}</h3>
+                    <p></p>
+                    <p></p>
+                    <a href="">Réserver et Payer</a>
+                </div>
+            </div>
+        {% endfor %}
+        </section>
+    </div>
+{% endblock %}
