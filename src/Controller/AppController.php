@@ -10,9 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(): Response
+    public function index(VehiculeRepository $repo): Response
     {
-        return $this->render('app/index.html.twig');
+        $vehicules = $repo->findAll();
+        return $this->render('app/index.html.twig', [
+            'vehicules' => $vehicules
+        ]);
     }
 
     #[Route('/vehicule', name:"vehicule")]
@@ -23,6 +26,8 @@ class AppController extends AbstractController
             'vehicules' => $vehicules
         ]);
     }
+
+
 }
 
 

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Véhicules{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-3">
+        {% if editMode %}
+            Modification fiche vehicule
+        {% else %}
+            Création vehicule à louer
+        {% endif %}
+    </h1>
+
+<div class="container">
+    {{ form_start(formVehicule) }}
+        {{ form_row(formVehicule.titre) }}
+        {{ form_row(formVehicule.marque) }}
+        {{ form_row(formVehicule.modele) }}
+        {{ form_row(formVehicule.description) }}
+        {{ form_row(formVehicule.photo) }}
+        {{ form_row(formVehicule.prix_journalier) }}
+
+    <button type="submit" class="btn btn-dark mt-2">
+    {% if editMode %}
+        Enregistrer les modifications
+    {% else %}
+        Ajouter le vehicule
+    {% endif %}
+    </button>
+
+    {{ form_end(formVehicule) }}
+</div>
+
+{% endblock %}

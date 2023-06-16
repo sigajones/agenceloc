@@ -3,7 +3,25 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-<div class="bg-image" style="background-image:url('')"></div>
+<div class="bg-image" style="background-image:url('https://picsum.photos/seed/picsum/200/300'); height: 30rem; object-fit: cover;">
     <h1 class="text-center mt-5">Bienvenue à bord</h1>
     <p class="text-center mt2">Location de voiture 24h/24 et 7j/7</p>
+</div>
+
+
+<div class="container mt-5">
+    <section class="row">
+{% for vehicule in vehicules %}
+        <div class="card border-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-header">{{ vehicule.titre }}</div>
+        <div class="card-body">
+            <img src="https://picsum.photos/seed/picsum/200/300" alt="">
+            <h4 class="card-title">Secondary card title</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="" class="btn btn-success">Réservez</a>
+        </div>
+        </div>
+{% endfor %}
+    </section>
+</div>   
 {% endblock %}
